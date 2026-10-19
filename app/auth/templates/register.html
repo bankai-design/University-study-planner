@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('authBP.static', filename='css/styles.css')}}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="parent">
+        <form class="child">
+            <p>Email</p>
+            <input type="text" name="email">
+            <p>Create password</p>
+            <input type="text" name="pass1">
+            <p>Confirm password</p>
+            <input type="text" name="pass2">
+
+            <input type="submit" value="Register">
+
+            <a href="login">Already have an account? Create one!</a>
+        </form>
+    </div>
+</body>
+</html>

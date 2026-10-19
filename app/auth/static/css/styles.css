@@ -1,0 +1,13 @@
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.child {
+    height: auto;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}

@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('authBP.static', filename='css/styles.css')}}">
     <title>Login</title>
 </head>
 <body>
     <div class="parent">
-        <div class="child" method="POST">
-            <form type="text" name="email"></form>
-            <form type="text" name="pass"></form>
-            <form type="submit" value="Login"></form>
-        </div>
+        <form class="child">
+            <p>Email</p>
+            <input type="text" name="email">
+            <p>Password</p>
+            <input type="text" name="pass">
+            <input type="submit" value="login">
+
+            <a href="register">Don't have an account? Create one!</a>
+        </form>
     </div>
 </body>
 </html>

@@ -8,7 +8,18 @@
 </head>
 <body>
     <div class="parent">
-        <form class="child">
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li style="color: red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form class="child" method="POST">
             <p>Email</p>
             <input type="text" name="email">
             <p>Create password</p>
@@ -18,8 +29,9 @@
 
             <input type="submit" value="Register">
 
-            <a href="login">Already have an account? Create one!</a>
+            <a href="login">Already have an account? Click here!</a>
         </form>
+
     </div>
 </body>
 </html>

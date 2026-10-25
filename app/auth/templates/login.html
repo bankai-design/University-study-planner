@@ -21,12 +21,13 @@
         {% endwith %}
 
         <form class="child" method="POST">
-            <p>Email</p>
+            <p class="font">Email</p>
             <input type="text" name="email">
-            <p>Password</p>
-            <input type="text" name="pass">
-            <input type="submit" value="login">
-
+            <p class="font">Password</p>
+            <input class="pass" type="text" name="pass"><br>
+            <input type="checkbox" value="showPass"><br>
+            <label for="showPass">Show password</label><br>
+            <input type="submit" value="Login"><br>
             <a href="register">Don't have an account? Create one!</a>
         </form>
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('authBP.static', filename='css/styles.css')}}">
+    <script src="{{ url_for('authBP.static', filename='js/script.js')}}" defer></script>
     <title>Login</title>
 </head>
 <body>
@@ -21,16 +22,19 @@
         {% endwith %}
 
         <form class="child" method="POST">
-            <p class="font">Email</p>
-            <input type="text" name="email">
-            <p class="font">Password</p>
-            <input class="pass" type="text" name="pass"><br>
-            <input type="checkbox" value="showPass"><br>
-            <label for="showPass">Show password</label><br>
+            <h1 class="font heading">Login</h1>
+
+            <input class="emailClass" type="email" placeholder="Email Address" name="email">
+            <input class="passClass" type="password" placeholder="Password" name="pass"><br>
+
+            <div class="checkBoxContainer">
+                <input type="checkbox" id="showPassId" value="showPass"><br>
+                <label for="showPassId">Show Password</label>
+            </div>
+        
             <input type="submit" value="Login"><br>
             <a href="register">Don't have an account? Create one!</a>
         </form>
-
     </div>
 </body>
 </html>

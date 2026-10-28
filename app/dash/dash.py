@@ -2,9 +2,6 @@ from flask import Blueprint, request, render_template, session, flash, redirect,
 
 dashBP = Blueprint("dashBP", __name__, template_folder="templates", static_folder="static")
 
-@dashBP.route("/dashboard", methods=["POST", "GET"])
+@dashBP.route("/dashboard")
 def dashboard():
-    if request.method == "POST":
-        pass
-    else:
-        return render_template("dashboard.html")
+    return render_template("dashboard.html")

@@ -1,18 +1,18 @@
 from flask import Blueprint, request, render_template, session, flash, redirect, url_for
 from .models import User, db
 
-
 authBP = Blueprint("authBP", __name__, template_folder="templates", static_folder="static")
 
 @authBP.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
         enteredEmail = request.form["email"]
-        enteredPass = request.form["pass"]        
+        enteredPass = request.form["pass"]
+
         foundUser = User.query.filter_by(email=enteredEmail, password=enteredPass).first()
         if foundUser:
             flash("Login successfull!")
-            return redirect(url_for("authBP.view"))
+            return redirect(url_for("dashBP.dashboard"))
         else:
             flash("Account doesn't exist, create it")
             return redirect(url_for("authBP.register"))
@@ -22,6 +22,8 @@ def login():
 @authBP.route("register", methods=["POST", "GET"])
 def register():
     if request.method == "POST":
+        enteredFirstName = request.form["firstName"]
+        enteredLastName = request.form["lastName"]
         createdEmail = request.form["email"]
         pass1 = request.form["pass1"]
         pass2 = request.form["pass2"]
@@ -34,8 +36,11 @@ def register():
             if pass1 == pass2:
                 session["emailKey"] = createdEmail
                 session["passKey"] = pass1
+                session["firstNameKey"] = enteredFirstName
+                session["lastNameKey"] = enteredLastName
+                fullName = enteredFirstName + " " + enteredLastName
 
-                account = User(createdEmail, pass1)
+                account = User(email=createdEmail, password=pass1, fullName=fullName)
                 db.session.add(account)
                 db.session.commit()
 

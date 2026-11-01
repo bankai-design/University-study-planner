@@ -8,7 +8,7 @@
 <body>
     {% block content %}
         {% for item in values %}
-            <p>Email: {{item.email}}, Password: {{item.password}}</p>
+            <p>Email: {{item.email}}, Password: {{item.password}}, Full Name: {{item.fullName}}</p>
         {% endfor %}
     {% endblock %}
 </body>

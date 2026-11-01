@@ -4,7 +4,9 @@ class User(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
+    fullName = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, fullName):
         self.email = email
         self.password = password
+        self.fullName = fullName

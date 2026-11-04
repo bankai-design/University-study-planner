@@ -1,0 +1,12 @@
+.navbar-nav {
+    font-size: 20px;
+}
+
+.collapse.navbar-collapse {
+    width: 100vh;
+    background-color: #c0d1ed;
+}
+
+html, body {
+    height: 100%;
+}

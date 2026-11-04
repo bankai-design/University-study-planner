@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('authBP.static', filename='css/styles.css')}}">
+    <script src="{{ url_for('authBP.static', filename='js/script.js')}}" defer></script>
+    <title>Register</title>
+</head>
+<body>
+    <div class="parent">
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li style="color: red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form class="child" method="POST">
+            <h1 class="font heading">Register</h1>
+            <input type="text" placeholder="First name" name="firstName"><br>
+            <input type="text" placeholder="Last name" name="lastName"><br>
+
+            <input type="text" placeholder="Email Address" name="email"><br>
+
+            <input type="password" placeholder="Password" name="pass1"><br>
+            <input type="password" placeholder="Confirm Password" name="pass2"><br>
+
+            <div class="checkBoxContainer">
+                <input type="checkbox" id="showPassId" value="showPass"><br>
+                <label for="showPassId">Show Password</label>
+            </div>
+
+            <input class="registerButton" type="submit" value="Register">
+
+            <a href="login">Already have an account? Click here!</a>
+        </form>
+
+    </div>
+</body>
+</html>

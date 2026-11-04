@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% set active_page = "calendar" %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('dashBP.static', filename='css/calendar.css') }}">
+    <script src="{{ url_for('dashBP.static', filename='js/script.js')}}" defer></script>
+</head>
+
+<div class="container">
+    <div class="headerContainer">
+        <h1>Calendar</h1>
+    </div>
+
+    <div class="parentCalendarContainer">
+        <div class="childCalendarContainer">
+            {% for _ in range(firstDayWeekday) %}
+                <div class="calendarDay emptyCell"></div>
+            {% endfor %}
+
+            {% for day in range(1, totalDays + 1) %}
+                <div class="calendarDay">
+                    <div class="day-number">{{day}}</div>
+
+                {% if day in eventsByDay %}
+                    <div class="event-list">
+                        {% for event in eventsByDay[day] %}
+                            <div class="event-badge">
+                                <span class="event-time">{{ event.start }} - {{ event.end }}</span>
+                                <span class="event-title">{{ event.summary }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

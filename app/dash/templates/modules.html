@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% set active_page = "modules" %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('dashBP.static', filename='css/modules.css') }}">
+</head>
+
+<div class="container">
+    <div class="headerContainer">
+        <h1>My University Modules</h1>
+    </div>
+
+    <div class="modules-grid">
+        {% if modules %}
+            {% for module in modules %}
+                <div class="module-card">
+                    <div class="module-icon">📚</div>
+                    <div class="module-info">
+                        <h3>{{ module }}</h3>
+                        <p class="module-status">Active Term Module</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No modules found. Check your timetable link.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

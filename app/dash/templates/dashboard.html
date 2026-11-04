@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% set active_page = "dashboard" %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('dashBP.static', filename='css/dashboard.css') }}">
+    <script src="{{ url_for('dashBP.static', filename='js/script.js')}}" defer></script>
+</head>
+
+<div class="container">
+    <div class="leftContainer">
+        <div class="contentContainer">
+            <div class="nameContainer">
+                <h1>Hello, {{fullName}}</h1>
+            </div>
+        </div>
+
+        <div class="biggerExamContainer">
+            <div class="examDateContainer">
+                <p>insert exam dates</p>
+            </div>
+        </div>
+
+        <div class="biggerCalendarContainer">
+            <div class="calendarContainer">
+                <p>insert calendar information for whole week</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightContainer">
+        <div class="biggerRecentContainer">
+            <div class="recentModulesContainer">
+                <p>insert recent modules the user has viewed</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

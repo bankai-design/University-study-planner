@@ -1,3 +1,28 @@
 {% extends "index.html" %}
+{% set active_page = "exams" %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('dashBP.static', filename='css/assessments.css') }}">
+</head>
+
+<div class="container">
+    <div class="headerContainer">
+        <h1>Upcoming Exams</h1>
+    </div>
+
+    <div class="single-page-container">
+        {% if exams %}
+            <div class="event-list">
+                {% for exam in exams %}
+                    <div class="assessment-card exam-card">
+                        <div class="assessment-date">{{ exam.date }} ({{ exam.start }} - {{ exam.end }})</div>
+                        <div class="assessment-title">{{ exam.summary }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-events">No upcoming exams found in your timetable.</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

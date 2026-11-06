@@ -1,4 +1,28 @@
 {% extends "index.html" %}
 {% set active_page = "assignments" %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('dashBP.static', filename='css/assessments.css') }}">
+</head>
+
+<div class="container">
+    <div class="headerContainer">
+        <h1>Assignment Deadlines</h1>
+    </div>
+
+    <div class="single-page-container">
+        {% if assignments %}
+            <div class="event-list">
+                {% for assignment in assignments %}
+                    <div class="assessment-card assignment-card">
+                        <div class="assessment-date">{{ assignment.date }} @ {{ assignment.start }}</div>
+                        <div class="assessment-title">{{ assignment.summary }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-events">No assignment deadlines found in your timetable.</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

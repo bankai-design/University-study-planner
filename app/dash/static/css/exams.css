@@ -1,0 +1,40 @@
+.single-page-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.assessment-card {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.exam-card {
+  background-color: #ffebee;
+  border-left: 4px solid #c62828;
+  color: #b71c1c;
+}
+
+.assessment-date {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.assessment-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.no-events {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}

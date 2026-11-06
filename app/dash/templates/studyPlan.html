@@ -1,4 +1,37 @@
 {% extends "index.html" %}
-{% set active_page = "studyPlan" %}
+{% set active_page = "study_plan" %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('dashBP.static', filename='css/study_plan.css') }}">
+</head>
+
+<div class="container">
+    <div class="headerContainer">
+        <h1>Smart Study Plan & Precedence Tracker</h1>
+    </div>
+
+    <div class="study-plan-container">
+        <p class="subtitle">Tasks are automatically prioritized based on urgency and deadline proximity.</p>
+
+        {% if tasks %}
+            <div class="task-list">
+                {% for task in tasks %}
+                    <div class="task-card priority-{{ task.priority | lower }}">
+                        <div class="task-meta">
+                            <span class="task-type">{{ task.type }}</span>
+                            <span class="badge priority-badge {{ task.priority | lower }}">{{ task.priority }} Priority</span>
+                        </div>
+                        <div class="task-title">{{ task.title }}</div>
+                        <div class="task-timing">
+                            📅 Due: <strong>{{ task.date_str }}</strong> 
+                            <span class="countdown">(~{{ task.days_left }} days remaining)</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-events">No upcoming exams or deadlines found in your timetable.</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

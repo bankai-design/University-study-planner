@@ -13,16 +13,20 @@
     <div class="modules-grid">
         {% if modules %}
             {% for module in modules %}
-                <div class="module-card">
-                    <div class="module-icon">📚</div>
-                    <div class="module-info">
-                        <h3>{{ module }}</h3>
-                        <p class="module-status">Active Term Module</p>
+                <!-- Uses ONLY the code (e.g., SEF3000U-A26) for the QMplus search link -->
+                <a href="https://qmplus.qmul.ac.uk/course/search.php?search={{ module.code | urlencode }}" target="_blank" class="module-card-link">
+                    <div class="module-card">
+                        <div class="module-icon">📚</div>
+                        <div class="module-info">
+                            <!-- Displays full name + code on your website -->
+                            <h3>{{ module.full_title }}</h3>
+                            <p class="module-status">Click to search {{ module.code }} on QMplus ↗</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             {% endfor %}
         {% else %}
-            <p>No modules found. Check your timetable link.</p>
+            <p>No modules found. Check your timetable feed.</p>
         {% endif %}
     </div>
 </div>
